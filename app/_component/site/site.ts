@@ -17,7 +17,7 @@ export default class Site extends Component {
 
     const previewKind: {[key in string]: PreviewStory} = {
       text: new PreviewTextStory,
-      // bullet: new PreviewBulletStory,
+      bullet: new PreviewBulletStory,
       // img: new PreviewPictureStory
     }
 
@@ -42,51 +42,67 @@ export default class Site extends Component {
           ce("br"),
         )
 
-        if (input.array) {
-          const inputElemArray = ce("input-elem-array")
-          function createInput() {
-            const inputElem = ce("input")
-            
-            let initSub = inputElem.on("change", () => {
-              if (inputElem.value !== "") {
-                initSub.deactivate()
-                createInput()
-              }
-            })
+        
+        const inputElemArray = ce("input-elem-array")
+        function createInput() {
+          
+          if (input.kind === "text" || input.kind === "textarea") {
+            let inputElem: any
+            if (input.kind === "text") inputElem = ce("input")
+            if (input.kind === "textarea") inputElem = ce("textarea")
 
-            inputElem.on("change", () => {
-              const val = inputElem.value
-              if (val === "") {
-                inputElem.remove()
-              }
-              let s = []
-              inputElemArray.childs(1, true).ea((e: any) => {
-                s.add(e.value)
+            if (input.array) {
+              inputElem.css("opacity", .3)
+              let initSub = inputElem.on("input", () => {
+                if (inputElem.value !== "") {
+                  initSub.deactivate()
+                  inputElem.css("opacity", 1)
+                  createInput()
+                }
               })
-              input.value.set(JSON.stringify(s))
-            })
+  
+              inputElem.on("input", (e) => {
+                const val = inputElem.value
+                if (val === "") {
+                  inputElem.remove()
+                }
+                let s = []
+                inputElemArray.childs(1, true).ea((e: any) => {
+                  s.add(e.value)
+                })
+                input.value.set(s)
+              })
+  
+              inputElem.on("keydown", (e: KeyboardEvent) => {
+  
+                if (e.key === "Enter") {
+                  //@ts-ignore
+                  if (inputElem.nextSibling) inputElem.nextSibling.focus()
+                }
+              })
+            }
+            else {
+              inputElem.on("input", (e) => {
+                const val = inputElem.value
+                input.value.set(val)
+              })
+            }
+
+            
 
             inputElemArray.apd(inputElem as any)
           }
-
-          createInput()
-
           
-  
-          this.inputContainer.apd(
-            inputElemArray,
-          )
+          
         }
-        else {
-          const inputElem = ce("input")
-          inputElem.on("change", () => {
-            input.value.set(inputElem.value)
-          })
-  
-          this.inputContainer.apd(
-            inputElem as any,
-          )
-        }
+
+        createInput()
+
+        
+
+        this.inputContainer.apd(
+          inputElemArray,
+        )
 
         
 
@@ -98,7 +114,7 @@ export default class Site extends Component {
       }
     }
 
-    activateStoryKind("text")
+    activateStoryKind("bullet")
 
 
 
