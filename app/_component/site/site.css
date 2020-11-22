@@ -23,3 +23,27 @@ letter-container {
   padding: 30px 50px;
   box-sizing: border-box;
 }
+
+input-container {
+  width: 50%;
+  position: relative;
+  float: left;
+  min-height: 100px;
+  box-sizing: border-box;
+  padding-right: 10%;
+}
+
+preview-container {
+  width: 50%;
+  position: relative;
+  float: left;
+  min-height: 100px;
+  box-sizing: border-box;
+  padding-left: 10%;
+}
+
+preview-container > * {
+  transform: scale(.12);
+  transform-origin: top left;
+  display: block;
+}

@@ -4,7 +4,9 @@ import declareComponent from "../../../lib/declareComponent"
 export default class PreviewPictureStory extends PreviewStory {
 
   constructor() {
-    super()
+    super("PreviewPictureStory", {
+      
+    })
 
 
   }

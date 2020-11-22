@@ -4,7 +4,7 @@ import declareComponent from "../../../lib/declareComponent"
 export default class PreviewBulletStory extends PreviewStory {
 
   constructor() {
-    super()
+    super("PreviewBulletStory", {})
 
 
   }
