@@ -104,8 +104,12 @@ export default class Site extends Component {
                 //@ts-ignore
                 inputElem.previousSibling.focus();
                 //@ts-ignore
-                (inputElem.previousElementSibling as HTMLInputElement).selectionStart = inputElem.previousElementSibling.value.length
+                (inputElem.previousSibling as HTMLInputElement).selectionStart = inputElem.previousSibling.value.length
               }
+              else {
+                if (inputElem.nextSibling) (inputElem.nextSibling as any).focus()
+              }
+
               inputElem.remove()
             }
             let s = []
@@ -117,7 +121,17 @@ export default class Site extends Component {
 
           inputElem.on("keydown", (e: KeyboardEvent) => {
 
-            if (e.key === "Enter") {
+            if (e.key === "ArrowUp") {
+              //@ts-ignore
+              if (inputElem.previousSibling) inputElem.previousSibling.focus();
+              (inputElem.previousSibling as any).selectionStart = (inputElem.previousSibling as any).value.length
+              e.preventDefault()
+            }
+          })
+
+          inputElem.on("keydown", (e: KeyboardEvent) => {
+
+            if (e.key === "Enter" || e.key === "ArrowDown") {
               //@ts-ignore
               if (inputElem.nextSibling) inputElem.nextSibling.focus()
               e.preventDefault()
