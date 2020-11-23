@@ -239,7 +239,7 @@ span {
   top: 0px;
   transform: matrix(1,0,0,1,0,0);
 }
-#Schulschlie_ung {
+#headingelem {
   position: absolute;
   left: 140px;
   top: 116px;
@@ -254,7 +254,7 @@ span {
   color: rgba(32,31,46,1);
   letter-spacing: 0.1px;
 }
-#Leider_werden_die_Schulen_komm {
+#summeryelem {
   position: absolute;
   left: 140px;
   top: 336px;
@@ -302,14 +302,7 @@ span {
   top: 796.5px;
   transform: matrix(1,0,0,1,0,0);
 }
-#Group_140 {
-  position: absolute;
-  width: 1298px;
-  height: 1293px;
-  left: 140px;
-  top: 888px;
-  overflow: visible;
-}
+
 .Rectangle_145 {
   position: absolute;
   overflow: visible;
@@ -341,6 +334,7 @@ span {
   left: 35px;
   top: 50px;
 }
+
 
 
 
@@ -535,4 +529,34 @@ span {
   transform-origin: center;
   left: 0px;
   top: 0px;
+}
+
+
+#headingelem {
+  position: relative;
+  display: block;
+  top: 0;
+  margin-top: 116px;
+}
+
+#summeryelem {
+  position: relative;
+  display: block;
+  margin-top: 25px;
+  top: 0;
+}
+
+#line {
+  position: relative;
+  display: block;
+  top: 0;
+  margin-top: 91px;
+}
+
+
+#allBullets {
+  position: relative;
+  width: 1298px;
+  left: 140px;
+  margin-top: 91px;
 }
