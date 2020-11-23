@@ -1,0 +1,537 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+span {
+  max-width: 100%;
+  white-space: pre-wrap;
+}
+#Story_text___1 {
+  position: absolute;
+  width: 1875px;
+  height: 3333px;
+  background-color: rgba(255,255,255,1);
+  overflow: hidden;
+  position: relative;
+}
+#hell {
+  position: absolute;
+  width: 4451.774px;
+  height: 6395.561px;
+  left: -2576.773px;
+  top: 0.439px;
+  overflow: visible;
+}
+#Rectangle_124 {
+  opacity: 0.38;
+}
+.Rectangle_124 {
+  position: absolute;
+  overflow: visible;
+  width: 1875px;
+  height: 3333px;
+  left: 0px;
+  top: 0px;
+}
+#Group_52 {
+  position: absolute;
+  width: 3016px;
+  height: 768px;
+  left: -1783px;
+  top: 32px;
+  display: none;
+  overflow: visible;
+}
+.Rectangle_98_cl {
+  position: absolute;
+  overflow: visible;
+  width: 1298px;
+  height: 768px;
+  left: 1718px;
+  top: 0px;
+}
+.Rectangle_99 {
+  position: absolute;
+  overflow: visible;
+  width: 1725px;
+  height: 751px;
+  left: 0px;
+  top: 17px;
+}
+#Group_135 {
+  position: absolute;
+  width: 1525.82px;
+  height: 271px;
+  left: 175px;
+  top: 218px;
+  overflow: visible;
+}
+#Group_48 {
+  position: absolute;
+  width: 305.522px;
+  height: 208.508px;
+  left: 1220.298px;
+  top: 39.417px;
+  overflow: visible;
+}
+#Group_17 {
+  position: absolute;
+  width: 305.522px;
+  height: 208.508px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_85_cr {
+  overflow: visible;
+  position: absolute;
+  width: 178.478px;
+  height: 113.652px;
+  left: 0px;
+  top: 94.856px;
+  transform: matrix(1,0,0,1,0,0);
+}
+.Path_86_ct {
+  overflow: visible;
+  position: absolute;
+  width: 225.571px;
+  height: 123.378px;
+  transform: translate(0px, 0px) matrix(1,0,0,1,18.7112,53.5457) rotate(-4deg);
+  transform-origin: center;
+  left: 0px;
+  top: 0px;
+}
+.Path_87_cv {
+  overflow: visible;
+  position: absolute;
+  width: 258.886px;
+  height: 129.803px;
+  transform: translate(0px, 0px) matrix(1,0,0,1,42.4236,8.8714) rotate(-4deg);
+  transform-origin: center;
+  left: 0px;
+  top: 0px;
+}
+#Taskforce {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+  width: 941px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 204px;
+  color: rgba(32,31,46,1);
+  letter-spacing: 0.2px;
+}
+#Group_139 {
+  position: absolute;
+  width: 149.356px;
+  height: 177.374px;
+  left: 1221.612px;
+  top: 441.651px;
+  overflow: visible;
+}
+#flower {
+  position: absolute;
+  width: 127.2px;
+  height: 177.374px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_210 {
+  overflow: visible;
+  position: absolute;
+  width: 45.125px;
+  height: 135.896px;
+  left: 47.144px;
+  top: 41.476px;
+  transform: matrix(1,0,0,1,0,0);
+}
+.Ellipse_36 {
+  position: absolute;
+  overflow: visible;
+  width: 50.883px;
+  height: 50.883px;
+  left: 76.316px;
+  top: 0px;
+}
+.Path_211 {
+  overflow: visible;
+  position: absolute;
+  width: 29.275px;
+  height: 88.163px;
+  left: 51.159px;
+  top: 89.211px;
+  transform: matrix(1,0,0,1,0,0);
+}
+.Ellipse_37 {
+  position: absolute;
+  overflow: visible;
+  width: 33.011px;
+  height: 33.01px;
+  left: 70.087px;
+  top: 62.304px;
+}
+.Path_212 {
+  overflow: visible;
+  position: absolute;
+  width: 34.188px;
+  height: 86.552px;
+  left: 16.52px;
+  top: 90.163px;
+  transform: matrix(1,0,0,1,0,0);
+}
+.Ellipse_38 {
+  position: absolute;
+  overflow: visible;
+  width: 33.011px;
+  height: 33.01px;
+  left: 0px;
+  top: 61.145px;
+}
+#Group_133 {
+  position: absolute;
+  width: 43.691px;
+  height: 44.689px;
+  left: 105.665px;
+  top: 107.407px;
+  overflow: visible;
+}
+.Path_215 {
+  overflow: visible;
+  position: absolute;
+  width: 19.97px;
+  height: 43.898px;
+  left: 0px;
+  top: 0.792px;
+  transform: matrix(1,0,0,1,0,0);
+}
+.Path_216 {
+  overflow: visible;
+  position: absolute;
+  width: 31.602px;
+  height: 32.163px;
+  left: 12.09px;
+  top: 0px;
+  transform: matrix(1,0,0,1,0,0);
+}
+#Group_136 {
+  position: absolute;
+  width: 1577px;
+  height: 2591px;
+  left: 149px;
+  top: 586px;
+  overflow: visible;
+}
+.Path_249 {
+  filter: drop-shadow(10px 20px 70px rgba(0, 0, 0, 0.169));
+  overflow: visible;
+  position: absolute;
+  width: 1787px;
+  height: 2801px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1,0,0,1,0,0);
+}
+#Schulschlie_ung {
+  position: absolute;
+  left: 140px;
+  top: 116px;
+  overflow: visible;
+  width: 1111px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 143px;
+  color: rgba(32,31,46,1);
+  letter-spacing: 0.1px;
+}
+#Leider_werden_die_Schulen_komm {
+  position: absolute;
+  left: 140px;
+  top: 336px;
+  overflow: visible;
+  width: 1298px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: PT Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 95px;
+  color: rgba(63,61,86,1);
+  letter-spacing: 0.35px;
+}
+.Rectangle_131 {
+  position: absolute;
+  overflow: visible;
+  width: 140px;
+  height: 2096px;
+  left: 0px;
+  top: 140px;
+}
+.Rectangle_137 {
+  position: absolute;
+  overflow: visible;
+  width: 140px;
+  height: 2096px;
+  left: 1437px;
+  top: 140px;
+}
+.Rectangle_138 {
+  position: absolute;
+  overflow: visible;
+  width: 1297px;
+  height: 140px;
+  left: 140px;
+  top: 0px;
+}
+.Line_1 {
+  overflow: visible;
+  position: absolute;
+  width: 1300px;
+  height: 2px;
+  left: 140.5px;
+  top: 796.5px;
+  transform: matrix(1,0,0,1,0,0);
+}
+#Group_140 {
+  position: absolute;
+  width: 1298px;
+  height: 1293px;
+  left: 140px;
+  top: 888px;
+  overflow: visible;
+}
+.Rectangle_145 {
+  position: absolute;
+  overflow: visible;
+  width: 99px;
+  height: 1293px;
+  left: 0px;
+  top: 0px;
+}
+#Schularbeiten_finden_in_der_er {
+  position: absolute;
+  left: 99px;
+  top: 0px;
+  overflow: visible;
+  width: 1200px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: PT Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 95px;
+  color: rgba(63,61,86,1);
+  letter-spacing: 0.35px;
+}
+.bullet-container .bullet {
+  position: absolute;
+  overflow: visible;
+  width: 27px;
+  height: 27px;
+  left: 35px;
+  top: 50px;
+}
+
+
+.bullet-container {
+  position: relative;
+  width: 100%;
+  float: left;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.bullet-container .text {
+  position: relative;
+  width: 90%;
+  margin-left: 10%;
+  float: left;
+  display: block;
+  font-size: 95px;
+}
+
+#Werkst_tte_und_Labors_bleiben_ {
+  position: absolute;
+  left: 99px;
+  top: 533px;
+  overflow: visible;
+  width: 1200px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: PT Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 95px;
+  color: rgba(63,61,86,1);
+  letter-spacing: 0.35px;
+}
+.Ellipse_25 {
+  position: absolute;
+  overflow: visible;
+  width: 27px;
+  height: 27px;
+  left: 19px;
+  top: 586px;
+}
+#Unterstufen_sind_nicht_betroff {
+  position: absolute;
+  left: 99px;
+  top: 820px;
+  overflow: visible;
+  width: 1200px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: PT Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 95px;
+  color: rgba(63,61,86,1);
+  letter-spacing: 0.35px;
+}
+.Ellipse_26 {
+  position: absolute;
+  overflow: visible;
+  width: 27px;
+  height: 27px;
+  left: 19px;
+  top: 873px;
+}
+.Path_224 {
+  overflow: visible;
+  position: absolute;
+  width: 935.218px;
+  height: 827.804px;
+  transform: matrix(1,0,0,1,-380.2178,2796.6554) rotate(165deg);
+  transform-origin: center;
+  left: 0px;
+  top: 0px;
+}
+#Group_137 {
+  position: absolute;
+  width: 266.906px;
+  height: 477.451px;
+  left: 35.302px;
+  top: 2617.205px;
+  overflow: visible;
+}
+#Group_134 {
+  position: absolute;
+  width: 188.906px;
+  height: 477.451px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_226 {
+  overflow: visible;
+  position: absolute;
+  width: 49.472px;
+  height: 422.964px;
+  left: 90.645px;
+  top: 53.647px;
+  transform: matrix(1,0,0,1,0,0);
+}
+.Ellipse_40 {
+  position: absolute;
+  overflow: visible;
+  width: 45.563px;
+  height: 45.564px;
+  left: 79.56px;
+  top: 0px;
+}
+.Ellipse_41 {
+  position: absolute;
+  overflow: visible;
+  width: 45.563px;
+  height: 45.564px;
+  left: 139.41px;
+  top: 74.118px;
+}
+.Ellipse_42 {
+  position: absolute;
+  overflow: visible;
+  width: 45.563px;
+  height: 45.564px;
+  left: 79.342px;
+  top: 118.197px;
+}
+.Ellipse_44 {
+  position: absolute;
+  overflow: visible;
+  width: 45.563px;
+  height: 45.564px;
+  left: 67.817px;
+  top: 239.116px;
+}
+.Path_227 {
+  overflow: visible;
+  position: absolute;
+  width: 49.209px;
+  height: 98.137px;
+  left: 114.993px;
+  top: 379.313px;
+  transform: matrix(1,0,0,1,0,0);
+}
+.Path_228 {
+  overflow: visible;
+  position: absolute;
+  width: 90.616px;
+  height: 59.127px;
+  left: 0px;
+  top: 417.305px;
+  transform: matrix(1,0,0,1,0,0);
+}
+.Ellipse_50 {
+  position: absolute;
+  overflow: visible;
+  width: 45.563px;
+  height: 45.564px;
+  left: 143.342px;
+  top: 230.197px;
+}
+.Ellipse_53 {
+  position: absolute;
+  overflow: visible;
+  width: 19.563px;
+  height: 19.564px;
+  left: 247.342px;
+  top: 335.197px;
+}
+.Ellipse_55 {
+  position: absolute;
+  overflow: visible;
+  width: 28.563px;
+  height: 28.564px;
+  left: 215.817px;
+  top: 400.116px;
+}
+.Path_248 {
+  overflow: visible;
+  position: absolute;
+  width: 56.014px;
+  height: 56.014px;
+  left: 483.483px;
+  top: 2841.802px;
+  transform: matrix(1,0,0,1,0,0);
+}
+.blue_d {
+  filter: drop-shadow(0px 0px 99px rgba(26, 116, 252, 0.6));
+  overflow: visible;
+  position: absolute;
+  width: 4464.476px;
+  height: 902.712px;
+  transform: matrix(1,0,0,1,-1562.3102,2471.6298) rotate(179deg);
+  transform-origin: center;
+  left: 0px;
+  top: 0px;
+}
