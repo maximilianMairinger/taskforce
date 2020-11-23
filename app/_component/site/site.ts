@@ -110,7 +110,7 @@ export default class Site extends Component {
             }
             let s = []
             inputElemArray.childs(1, true).ea((e: any) => {
-              s.add(e.value)
+              if (e.value) s.add(e.value)
             })
             input.value.set(JSON.stringify(s))
           })

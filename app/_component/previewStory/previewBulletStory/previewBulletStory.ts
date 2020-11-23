@@ -34,12 +34,13 @@ export default class PreviewBulletStory extends PreviewStory {
 
     
 
-    const contentElement = this.q(".allBullets")
+    const contentElement = this.componentBody.childs(".allBullets", true)[0]
 
     this.inputs.Content.value.get((s) => {
       contentElement.emptyNodes()
-      JSON.parse(s).ea((e) => {
-        contentElement.apd(`<div class="bullet-container">
+      let html = ""
+      JSON.parse(s).forEach((e) => {
+        html += `<div class="bullet-container">
 				<div class="text">
 					<span>${e}</span>
 				</div>
@@ -47,8 +48,10 @@ export default class PreviewBulletStory extends PreviewStory {
 					<ellipse fill="rgba(63,61,86,1)" id="Ellipse_24" rx="13.5" ry="13.5" cx="13.5" cy="13.5">
 					</ellipse>
 				</svg>
-			</div>`)
+			</div>`
       }, true)
+
+      contentElement.innerHTML = html
       
     })
   }

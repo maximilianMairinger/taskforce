@@ -342,11 +342,13 @@ span {
   top: 50px;
 }
 
+
 .bullet-container {
   position: relative;
   width: 100%;
   float: left;
   display: block;
+  margin-bottom: 30px;
 }
 
 .bullet-container .text {
