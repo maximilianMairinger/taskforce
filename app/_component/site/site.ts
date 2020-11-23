@@ -51,43 +51,25 @@ export default class Site extends Component {
             if (input.kind === "text") inputElem = ce("input")
             if (input.kind === "textarea") inputElem = ce("textarea")
 
-            inputElem.value = input.value.get()
+            
 
             if (input.array) {
               inputElem.css("opacity", .3)
-              let initSub = inputElem.on("input", () => {
-                if (inputElem.value !== "") {
-                  initSub.deactivate()
-                  inputElem.css("opacity", 1)
-                  createInput()
-                }
-              })
-  
-              inputElem.on("input", (e) => {
-                const val = inputElem.value
-                if (val === "") {
-                  inputElem.remove()
-                }
-                let s = []
-                inputElemArray.childs(1, true).ea((e: any) => {
-                  s.add(e.value)
-                })
-                input.value.set(s)
-              })
-  
-              inputElem.on("keydown", (e: KeyboardEvent) => {
-  
-                if (e.key === "Enter") {
-                  //@ts-ignore
-                  if (inputElem.nextSibling) inputElem.nextSibling.focus()
-                }
-              })
+
+              
+
+              mk(inputElem, undefined, true)
+
+              
+
+              
             }
             else {
               inputElem.on("input", (e) => {
                 const val = inputElem.value
                 input.value.set(val)
               })
+              inputElem.value = input.value.get()
             }
 
             
@@ -97,6 +79,59 @@ export default class Site extends Component {
           
           
         }
+
+        function mk(inputElem = ce("textarea"), txt = "", init = false) {                
+          inputElem.text(txt, false)
+          inputElemArray.apd(inputElem)
+
+          if (init) {
+            let initSub = inputElem.on("input", () => {
+              if (inputElem.value !== "") {
+                initSub.deactivate()
+                inputElem.css("opacity", 1)
+                createInput()
+              }
+            })
+          }
+
+          
+
+          inputElem.on("input", (e) => {
+            const val = inputElem.value
+            if (val === "") {
+              
+              if (inputElem.previousSibling) {
+                //@ts-ignore
+                inputElem.previousSibling.focus();
+                //@ts-ignore
+                (inputElem.previousElementSibling as HTMLInputElement).selectionStart = inputElem.previousElementSibling.value.length
+              }
+              inputElem.remove()
+            }
+            let s = []
+            inputElemArray.childs(1, true).ea((e: any) => {
+              s.add(e.value)
+            })
+            input.value.set(JSON.stringify(s))
+          })
+
+          inputElem.on("keydown", (e: KeyboardEvent) => {
+
+            if (e.key === "Enter") {
+              //@ts-ignore
+              if (inputElem.nextSibling) inputElem.nextSibling.focus()
+              e.preventDefault()
+            }
+          })
+        }
+
+        if (input.array) {
+          let inp = JSON.parse(input.value.get())
+          inp.ea((e) => {
+            if (e) mk(undefined, e)
+          })
+        }
+        
 
         createInput()
 

@@ -13,7 +13,13 @@ export default abstract class PreviewStory extends Component {
       const input = inputs[name]
 
       if (input.save === undefined || input.save) {
-        ob[name] = ""
+        if (input.array) {
+          ob[name] = "[]"
+        }
+        else {
+          ob[name] = ""
+        }
+        
       }
     }
     

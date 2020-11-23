@@ -32,10 +32,25 @@ export default class PreviewBulletStory extends PreviewStory {
       summeryElement.text(s || "This is an example summery. With 3 lines! Now I need to add just one more Line.", anim)
     })
 
-    // const contentElement = this.q("#content")
-    // this.inputs.Content.value.get((s) => {
-    //   contentElement.text(s, anim)
-    // })
+    
+
+    const contentElement = this.q(".allBullets")
+
+    this.inputs.Content.value.get((s) => {
+      contentElement.emptyNodes()
+      JSON.parse(s).ea((e) => {
+        contentElement.apd(`<div class="bullet-container">
+				<div class="text">
+					<span>${e}</span>
+				</div>
+				<svg class="bullet">
+					<ellipse fill="rgba(63,61,86,1)" id="Ellipse_24" rx="13.5" ry="13.5" cx="13.5" cy="13.5">
+					</ellipse>
+				</svg>
+			</div>`)
+      }, true)
+      
+    })
   }
 
   stl() {

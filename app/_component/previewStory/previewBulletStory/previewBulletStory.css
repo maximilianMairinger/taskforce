@@ -333,14 +333,31 @@ span {
   color: rgba(63,61,86,1);
   letter-spacing: 0.35px;
 }
-.Ellipse_24 {
+.bullet-container .bullet {
   position: absolute;
   overflow: visible;
   width: 27px;
   height: 27px;
-  left: 19px;
-  top: 53px;
+  left: 35px;
+  top: 50px;
 }
+
+.bullet-container {
+  position: relative;
+  width: 100%;
+  float: left;
+  display: block;
+}
+
+.bullet-container .text {
+  position: relative;
+  width: 90%;
+  margin-left: 10%;
+  float: left;
+  display: block;
+  font-size: 95px;
+}
+
 #Werkst_tte_und_Labors_bleiben_ {
   position: absolute;
   left: 99px;
