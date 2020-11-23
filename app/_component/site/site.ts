@@ -51,6 +51,8 @@ export default class Site extends Component {
             if (input.kind === "text") inputElem = ce("input")
             if (input.kind === "textarea") inputElem = ce("textarea")
 
+            inputElem.value = input.value.get()
+
             if (input.array) {
               inputElem.css("opacity", .3)
               let initSub = inputElem.on("input", () => {

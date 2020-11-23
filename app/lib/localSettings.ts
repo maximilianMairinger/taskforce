@@ -25,7 +25,7 @@ export function createLocalSettings(settingsName: Name, settingsDefault_valDefau
     dat = new DataBase(val, settingsDefault_valDefault)
     dat((v: any) => {
       localStorage[settingsName] = JSON.stringify(v)
-    }, false)
+    }, true, false)
   }
   else {
     dat = new Data(val, settingsDefault_valDefault)

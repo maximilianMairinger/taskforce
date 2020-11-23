@@ -1,6 +1,8 @@
 import PreviewStory from "../previewStory"
 import declareComponent from "../../../lib/declareComponent"
 
+const anim = false
+
 export default class PreviewBulletStory extends PreviewStory {
 
   constructor() {
@@ -20,7 +22,20 @@ export default class PreviewBulletStory extends PreviewStory {
       }
     })
 
+    const captionElement = this.q("#heading")
+    this.inputs.Caption.value.get((s) => {
+      captionElement.text(s || "Heading", anim)
+    })
 
+    const summeryElement = this.q("#summery")
+    this.inputs.Summery.value.get((s) => {
+      summeryElement.text(s || "This is an example summery. With 3 lines! Now I need to add just one more Line.", anim)
+    })
+
+    // const contentElement = this.q("#content")
+    // this.inputs.Content.value.get((s) => {
+    //   contentElement.text(s, anim)
+    // })
   }
 
   stl() {
