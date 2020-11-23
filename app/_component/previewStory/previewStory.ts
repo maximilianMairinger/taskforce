@@ -6,7 +6,7 @@ import createLocalSettings from "./../../lib/localSettings"
 
 export default abstract class PreviewStory extends Component {
   constructor(previewName: string, public inputs: {[key in string]: {kind: string, value?: Data<any>, description: string, array?: boolean, save?: boolean}}) {
-    super(false)
+    super()
 
     const ob: any = {}
     for (let name in inputs) {

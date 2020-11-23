@@ -47,8 +47,8 @@ export default abstract class Component extends HTMLElement {
     this[attrName](newVal)
   }
 
-  public q(qs?: string) {
-    return this.componentBody.childs(qs)
+  public q(qs?: string, asArray?: boolean) {
+    return this.componentBody.childs(qs, asArray)
   }
 
 

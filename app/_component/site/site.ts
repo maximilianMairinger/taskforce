@@ -5,13 +5,16 @@ import PreviewBulletStory from "../previewStory/previewBulletStory/previewBullet
 import PreviewPictureStory from "../previewStory/previewPictureStory/previewPictureStory"
 import PreviewStory from "../previewStory/previewStory"
 import "./../../global"
+import * as htmlConverter from "html-to-image"
+
 
 
 
 export default class Site extends Component {
   private storyKindSelect = this.q("#kind") as HTMLSelectElement
   private inputContainer = this.q("input-container")
-  private previewContainer = this.q("preview-container")
+  private previewContainer = this.q("preview-container", true)[0]
+  private downLoadButton = this.q("#download") as HTMLButtonElement
   constructor() {
     super()
 
@@ -171,6 +174,23 @@ export default class Site extends Component {
 
     this.storyKindSelect.on("change", () => {
       activateStoryKind(this.storyKindSelect.value)
+    })
+
+
+
+    this.downLoadButton.on("click", async () => {
+      const preview = this.previewContainer.childs(1, true).first
+      this.downLoadButton.disabled = true
+      this.downLoadButton.text("Downloading... This may take a while.")
+      let dataUrl = await htmlConverter.toPng(preview.componentBody, {
+        
+      })
+      this.downLoadButton.disabled = false
+      this.downLoadButton.text("Download")
+
+      let img = ce("img")
+      img.src = dataUrl
+      this.q("export-container").apd(img as any)
     })
 
 
