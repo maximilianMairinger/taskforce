@@ -51,3 +51,7 @@ preview-container > * {
 textarea, input {
   width: 80%
 }
+
+textarea {
+  height: 80px;
+}
