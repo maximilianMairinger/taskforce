@@ -263,7 +263,7 @@ span {
   letter-spacing: 0.1px;
   width: 1300px;
 }
-#summeryelem {
+#summaryelem {
   position: absolute;
   left: 140px;
   top: 336px;
@@ -548,7 +548,7 @@ span {
   margin-top: 116px;
 }
 
-#summeryelem {
+#summaryelem {
   position: relative;
   display: block;
   margin-top: 25px;

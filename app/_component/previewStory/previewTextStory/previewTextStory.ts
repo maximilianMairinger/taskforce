@@ -14,8 +14,8 @@ export default class PreviewTextStory extends PreviewStory {
         description: "The Caption that will be at the very top of the post. Best one word",
         kind: "text"
       },
-      Summery: {
-        description: "Short summery of the subject. 4 lines max",
+      Summary: {
+        description: "Short summary of the subject. 4 lines max",
         kind: "textarea"
       },
       Content: {
@@ -29,9 +29,9 @@ export default class PreviewTextStory extends PreviewStory {
       captionElement.text(s || "Heading", anim)
     })
 
-    const summeryElement = this.q("#summery")
-    this.inputs.Summery.value.get((s) => {
-      summeryElement.text(s || "This is an example summery. With 3 lines! Now I need to add just one more Line.", anim)
+    const summaryElement = this.q("#summary")
+    this.inputs.Summary.value.get((s) => {
+      summaryElement.text(s || "This is an example summary. With 3 lines! Now I need to add just one more Line.", anim)
     })
 
 
