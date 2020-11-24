@@ -184,7 +184,7 @@ export default class Site extends Component {
       this.downLoadButton.disabled = true
       this.downLoadButton.text("Downloading... This may take a while.")
       let dataUrl = await htmlConverter.toBlob(preview.componentBody, {
-        pixelRatio: 2
+        pixelRatio: 1
       })
       saveAs(dataUrl, preview.inputs.Caption && preview.inputs.Caption.value.get() ? `story_${preview.inputs.Caption.value.get()}.png` : "story.png")
       this.downLoadButton.disabled = false
