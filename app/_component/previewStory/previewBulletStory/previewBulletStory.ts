@@ -26,9 +26,9 @@ export default class PreviewBulletStory extends PreviewStory {
     this.inputs.Caption.value.get((s) => {
       captionElement.text(s || "Heading", anim)
     })
-
+    
     const summaryElement = this.q("#summary")
-    this.inputs.summary.value.get((s) => {
+    this.inputs.Summary.value.get((s) => {
       summaryElement.text(s || "This is an example summary. With 3 lines! Now I need to add just one more Line.", anim)
     })
 

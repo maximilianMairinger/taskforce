@@ -30,7 +30,7 @@ export default class PreviewTextStory extends PreviewStory {
     })
 
     const summaryElement = this.q("#summary")
-    this.inputs.summary.value.get((s) => {
+    this.inputs.Summary.value.get((s) => {
       summaryElement.text(s || "This is an example summary. With 3 lines! Now I need to add just one more Line.", anim)
     })
 
