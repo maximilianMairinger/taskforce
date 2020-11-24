@@ -6,6 +6,7 @@ import PreviewPictureStory from "../previewStory/previewPictureStory/previewPict
 import PreviewStory from "../previewStory/previewStory"
 import "./../../global"
 import * as htmlConverter from "html-to-image"
+import { saveAs } from 'file-saver';
 
 
 
@@ -179,18 +180,19 @@ export default class Site extends Component {
 
 
     this.downLoadButton.on("click", async () => {
-      const preview = this.previewContainer.childs(1, true).first
+      const preview = this.previewContainer.childs(1, true).first as PreviewStory
       this.downLoadButton.disabled = true
       this.downLoadButton.text("Downloading... This may take a while.")
-      let dataUrl = await htmlConverter.toPng(preview.componentBody, {
-        
+      let dataUrl = await htmlConverter.toBlob(preview.componentBody, {
+        pixelRatio: 1
       })
+      saveAs(dataUrl, preview.inputs.Caption && preview.inputs.Caption.value.get() ? `story_${preview.inputs.Caption.value.get()}.png` : "story.png")
       this.downLoadButton.disabled = false
       this.downLoadButton.text("Download")
 
-      let img = ce("img")
-      img.src = dataUrl
-      this.q("export-container").apd(img as any)
+      // let img = ce("img")
+      // img.src = dataUrl
+      // this.q("export-container").apd(img as any)
     })
 
 
