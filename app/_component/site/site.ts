@@ -169,7 +169,7 @@ export default class Site extends Component {
       }
     }
 
-    activateStoryKind("bullet")
+    activateStoryKind(this.storyKindSelect.value)
 
 
 
