@@ -12,7 +12,7 @@ import { saveAs } from 'file-saver';
 
 
 export default class Site extends Component {
-  // private storyKindSelect = this.q("#kind") as HTMLSelectElement
+  private storyKindSelect = this.q("#kind") as HTMLSelectElement
   private inputContainer = this.q("input-container")
   private previewContainer = this.q("preview-container", true)[0]
   private downLoadButton = this.q("#download") as HTMLButtonElement
@@ -173,9 +173,9 @@ export default class Site extends Component {
 
 
 
-    // this.storyKindSelect.on("change", () => {
-    //   activateStoryKind(this.storyKindSelect.value)
-    // })
+    this.storyKindSelect.on("change", () => {
+      activateStoryKind(this.storyKindSelect.value)
+    })
 
 
 
@@ -189,10 +189,6 @@ export default class Site extends Component {
       saveAs(dataUrl, preview.inputs.Caption && preview.inputs.Caption.value.get() ? `story_${preview.inputs.Caption.value.get()}.png` : "story.png")
       this.downLoadButton.disabled = false
       this.downLoadButton.text("Download")
-
-      // let img = ce("img")
-      // img.src = dataUrl
-      // this.q("export-container").apd(img as any)
     })
 
 
