@@ -5,13 +5,17 @@ import PreviewBulletStory from "../previewStory/previewBulletStory/previewBullet
 import PreviewPictureStory from "../previewStory/previewPictureStory/previewPictureStory"
 import PreviewStory from "../previewStory/previewStory"
 import "./../../global"
+import * as htmlConverter from "html-to-image"
+import { saveAs } from 'file-saver';
+
 
 
 
 export default class Site extends Component {
   private storyKindSelect = this.q("#kind") as HTMLSelectElement
   private inputContainer = this.q("input-container")
-  private previewContainer = this.q("preview-container")
+  private previewContainer = this.q("preview-container", true)[0]
+  private downLoadButton = this.q("#download") as HTMLButtonElement
   constructor() {
     super()
 
@@ -104,8 +108,12 @@ export default class Site extends Component {
                 //@ts-ignore
                 inputElem.previousSibling.focus();
                 //@ts-ignore
-                (inputElem.previousElementSibling as HTMLInputElement).selectionStart = inputElem.previousElementSibling.value.length
+                (inputElem.previousSibling as HTMLInputElement).selectionStart = inputElem.previousSibling.value.length
               }
+              else {
+                if (inputElem.nextSibling) (inputElem.nextSibling as any).focus()
+              }
+
               inputElem.remove()
             }
             let s = []
@@ -117,7 +125,17 @@ export default class Site extends Component {
 
           inputElem.on("keydown", (e: KeyboardEvent) => {
 
-            if (e.key === "Enter") {
+            if (e.key === "ArrowUp") {
+              //@ts-ignore
+              if (inputElem.previousSibling) inputElem.previousSibling.focus();
+              (inputElem.previousSibling as any).selectionStart = (inputElem.previousSibling as any).value.length
+              e.preventDefault()
+            }
+          })
+
+          inputElem.on("keydown", (e: KeyboardEvent) => {
+
+            if (e.key === "Enter" || e.key === "ArrowDown") {
               //@ts-ignore
               if (inputElem.nextSibling) inputElem.nextSibling.focus()
               e.preventDefault()
@@ -157,6 +175,20 @@ export default class Site extends Component {
 
     this.storyKindSelect.on("change", () => {
       activateStoryKind(this.storyKindSelect.value)
+    })
+
+
+
+    this.downLoadButton.on("click", async () => {
+      const preview = this.previewContainer.childs(1, true).first as PreviewStory
+      this.downLoadButton.disabled = true
+      this.downLoadButton.text("Downloading... This may take a while.")
+      let dataUrl = await htmlConverter.toBlob(preview.componentBody, {
+        pixelRatio: 1
+      })
+      saveAs(dataUrl, preview.inputs.Caption && preview.inputs.Caption.value.get() ? `story_${preview.inputs.Caption.value.get()}.png` : "story.png")
+      this.downLoadButton.disabled = false
+      this.downLoadButton.text("Download")
     })
 
 

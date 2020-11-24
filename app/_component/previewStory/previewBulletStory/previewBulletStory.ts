@@ -34,7 +34,7 @@ export default class PreviewBulletStory extends PreviewStory {
 
     
 
-    const contentElement = this.componentBody.childs(".allBullets", true)[0]
+    const contentElement = this.componentBody.childs("#allBullets", true)[0]
 
     this.inputs.Content.value.get((s) => {
       contentElement.emptyNodes()
