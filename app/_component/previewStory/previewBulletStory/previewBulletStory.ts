@@ -33,7 +33,7 @@ export default class PreviewBulletStory extends PreviewStory {
     })
 
     
-
+    //@ts-ignore
     const contentElement = this.componentBody.childs("#allBullets", true)[0]
 
     this.inputs.Content.value.get((s) => {
@@ -45,7 +45,7 @@ export default class PreviewBulletStory extends PreviewStory {
 					<span>${e}</span>
 				</div>
 				<svg class="bullet">
-					<ellipse fill="rgba(63,61,86,1)" id="Ellipse_24" rx="13.5" ry="13.5" cx="13.5" cy="13.5">
+					<ellipse fill="rgba(32,31,46,1)" id="Ellipse_24" rx="13.5" ry="13.5" cx="13.5" cy="13.5">
 					</ellipse>
 				</svg>
 			</div>`
