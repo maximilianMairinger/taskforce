@@ -275,7 +275,7 @@ span {
   font-style: normal;
   font-weight: normal;
   font-size: 95px;
-  color: rgba(63,61,86,1);
+  color: rgba(32,31,46,1);
   letter-spacing: 0.35px;
 }
 .Rectangle_131 {
@@ -364,6 +364,10 @@ span {
   font-size: 95px;
 }
 
+.bullet-container .text span {
+  color: rgba(32,31,46,1);
+}
+
 #Werkst_tte_und_Labors_bleiben_ {
   position: absolute;
   left: 99px;
@@ -376,7 +380,7 @@ span {
   font-style: normal;
   font-weight: normal;
   font-size: 95px;
-  color: rgba(63,61,86,1);
+  color: rgba(32,31,46,1);
   letter-spacing: 0.35px;
 }
 .Ellipse_25 {
@@ -399,7 +403,7 @@ span {
   font-style: normal;
   font-weight: normal;
   font-size: 95px;
-  color: rgba(63,61,86,1);
+  color: rgba(32,31,46,1);
   letter-spacing: 0.35px;
 }
 .Ellipse_26 {
