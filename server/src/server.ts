@@ -1,11 +1,20 @@
 import setup from "./setup"
 const puppeteer = require("puppeteer")
+import fs from "fs"
+import path from "path"
+import stream from "stream"
 // import puppeteer from "puppeteer"
 
 
 const app = setup()
 
 app.post("/render", async (req, res) => {
+  if (!fs.existsSync("public/out")) {
+    fs.mkdirSync("public/out")
+  }
+
+
+
   console.log("start img download")
   let vals = req.body.vals
 
@@ -39,11 +48,11 @@ app.post("/render", async (req, res) => {
 
   const clip = await elem.boundingBox();
   clip.height -= 3
-  await page.screenshot({path: 'img.png', clip})
+  await page.screenshot({path: 'public/out/img.png', clip})
   
   await pup.close()
 
 
   console.log("done")
-  res.send({ok: "ok"})
+  res.send({resource: "/out/img.png"})
 })

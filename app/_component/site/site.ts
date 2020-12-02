@@ -21,6 +21,7 @@ export default class Site extends Component {
   private previewContainer = this.q("preview-container", true)[0]
   private downLoadLocallyButton = this.q("#downloadLocally") as HTMLButtonElement
   private downLoadServerButton = this.q("#downloadServerSide") as HTMLButtonElement
+  private exportContainer = this.q("export-container")
 
   private activateStoryKind: Function
   private previewKind: any
@@ -224,7 +225,11 @@ export default class Site extends Component {
       for (let name in inputs) {
         vals[name] = inputs[name].value.get()
       }
-      console.log(await ajaon.post("render", params))
+      let resp = await ajaon.post("render", params)
+      let aElem = ce("a").html("Download")
+      aElem.href = resp.resource
+      aElem.download = "true"
+      aElem.click()
 
       this.downLoadServerButton.disabled = false
       this.downLoadServerButton.text(oriText)
