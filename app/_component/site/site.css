@@ -34,13 +34,9 @@ input-container {
   padding-right: 10%;
 }
 
-preview-container {
-  width: 50%;
-  position: relative;
-  float: left;
-  min-height: 100px;
-  box-sizing: border-box;
-  padding-left: 10%;
+
+button:first-of-type {
+  margin-right: 20px;
 }
 
 
@@ -64,12 +60,11 @@ export-container img {
 }
 
 preview-container {
-  width: 50%;
   position: relative;
   float: left;
   min-height: 100px;
   box-sizing: border-box;
-  padding-left: 10%;
+  margin-left: 10%;
 }
 
 preview-container > * {

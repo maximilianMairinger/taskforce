@@ -1,11 +1,49 @@
 import setup from "./setup"
+const puppeteer = require("puppeteer")
+// import puppeteer from "puppeteer"
 
 
+const app = setup()
 
-setup("taskforce").then(async ({app, db}) => {
+app.post("/render", async (req, res) => {
+  console.log("start img download")
+  let vals = req.body.vals
 
+
+  const pup = await puppeteer.launch()
+  const page = await pup.newPage()
+  await page.setViewport({ width: 3840, height: 2160});
+
+
+  await page.goto('http://127.0.0.1:' + await app.port);
+
+
+  await page.evaluateHandle(`let site = document.querySelector("body > c-site")
+  site.activateStoryKind("${req.body.kind}")
+  let inputs = site.previewKind.${req.body.kind}.inputs
+  let vals = JSON.parse('${JSON.stringify(vals)}')
+  for (v in vals) {
+    inputs[v].value.set(vals[v])
+  }
+  `);
   
-  app.post("/echo", (req, res) => {
-    res.send(req.body)
-  })
+  const elem = await page.evaluateHandle(`let elem = document.querySelector("body > c-site").shadowRoot.querySelector("component-body > letter-container > preview-container")
+  elem.style.position = "absolute";
+  elem.style.top = "-500px";
+  elem
+  `);
+
+  await page.evaluateHandle(`let zoomy = document.querySelector("body > c-site").shadowRoot.querySelector("component-body > letter-container > preview-container > c-preview-text-story");
+  zoomy.style.zoom = .5;
+  `);
+
+  const clip = await elem.boundingBox();
+  clip.height -= 3
+  await page.screenshot({path: 'img.png', clip})
+  
+  await pup.close()
+
+
+  console.log("done")
+  res.send({ok: "ok"})
 })
