@@ -19,7 +19,10 @@ app.post("/render", async (req, res) => {
   let vals = req.body.vals
 
 
-  const pup = await puppeteer.launch()
+  const pup = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox']
+  })
   const page = await pup.newPage()
   await page.setViewport({ width: 3840, height: 2160});
 
