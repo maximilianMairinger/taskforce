@@ -26,11 +26,10 @@ app.post("/render", async (req, res) => {
 
   await page.goto('http://127.0.0.1:' + await app.port);
 
-
   await page.evaluateHandle(`let site = document.querySelector("body > c-site")
   site.activateStoryKind("${req.body.kind}")
   let inputs = site.previewKind.${req.body.kind}.inputs
-  let vals = JSON.parse('${JSON.stringify(vals)}')
+  let vals = JSON.parse(${JSON.stringify(JSON.stringify(vals))})
   for (v in vals) {
     inputs[v].value.set(vals[v])
   }
@@ -42,7 +41,7 @@ app.post("/render", async (req, res) => {
   elem
   `);
 
-  await page.evaluateHandle(`let zoomy = document.querySelector("body > c-site").shadowRoot.querySelector("component-body > letter-container > preview-container > c-preview-text-story");
+  await page.evaluateHandle(`let zoomy = document.querySelector("body > c-site").shadowRoot.querySelector("component-body > letter-container > preview-container > *");
   zoomy.style.zoom = .5;
   `);
 
