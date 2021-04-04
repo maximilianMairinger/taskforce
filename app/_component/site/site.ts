@@ -5,8 +5,12 @@ import PreviewBulletStory from "../previewStory/previewBulletStory/previewBullet
 import PreviewPictureStory from "../previewStory/previewPictureStory/previewPictureStory"
 import PreviewStory from "../previewStory/previewStory"
 import "./../../global"
+import { Data } from "josm"
 import * as htmlConverter from "html-to-image"
+//@ts-ignore
 import { saveAs } from 'file-saver';
+import cajaon from "ajaon"
+const ajaon = cajaon()
 
 
 
@@ -15,19 +19,37 @@ export default class Site extends Component {
   private storyKindSelect = this.q("#kind") as HTMLSelectElement
   private inputContainer = this.q("input-container")
   private previewContainer = this.q("preview-container", true)[0]
-  private downLoadButton = this.q("#download") as HTMLButtonElement
+  private downLoadLocallyButton = this.q("#downloadLocally") as HTMLButtonElement
+  private downLoadServerButton = this.q("#downloadServerSide") as HTMLButtonElement
+  private exportContainer = this.q("export-container")
+
+  private activateStoryKind: Function
+  private previewKind: any
   constructor() {
     super()
 
-    const previewKind: {[key in string]: PreviewStory} = {
+    const previewKind: {[key in string]: PreviewStory} = this.previewKind = {
       text: new PreviewTextStory,
       bullet: new PreviewBulletStory,
       // img: new PreviewPictureStory
     }
 
-    const activateStoryKind = (kind: string) => {
+    let inputs: {
+      [x: string]: {
+          kind: string;
+          value?: Data<any, any>;
+          description: string;
+          array?: boolean;
+          save?: boolean;
+      };
+    }
+
+    let activeKind: string
+
+    const activateStoryKind = this.activateStoryKind = (kind: string) => {
       const prevElem = previewKind[kind]
-      const inputs = prevElem.inputs
+      activeKind = kind
+      inputs = prevElem.inputs
       this.inputContainer.emptyNodes()
       this.previewContainer.emptyNodes()
       this.previewContainer.apd(prevElem)
@@ -179,16 +201,38 @@ export default class Site extends Component {
 
 
 
-    this.downLoadButton.on("click", async () => {
+    this.downLoadLocallyButton.on("click", async () => {
       const preview = this.previewContainer.childs(1, true).first as PreviewStory
-      this.downLoadButton.disabled = true
-      this.downLoadButton.text("Downloading... This may take a while.")
+      this.downLoadLocallyButton.disabled = true
+      let oriText = this.downLoadLocallyButton.text()
+      this.downLoadLocallyButton.text("Downloading... This may take a while.")
       let dataUrl = await htmlConverter.toBlob(preview.componentBody, {
         pixelRatio: 1
       })
       saveAs(dataUrl, preview.inputs.Caption && preview.inputs.Caption.value.get() ? `story_${preview.inputs.Caption.value.get()}.png` : "story.png")
-      this.downLoadButton.disabled = false
-      this.downLoadButton.text("Download")
+      this.downLoadLocallyButton.disabled = false
+      this.downLoadLocallyButton.text(oriText)
+    })
+
+
+    this.downLoadServerButton.on("click", async () => {
+      let oriText = this.downLoadServerButton.text()
+      this.downLoadServerButton.text("Downloading... This may take a while.")
+      this.downLoadServerButton.disabled = true
+
+      let params = {kind: activeKind, vals: {}}
+      let {vals} = params
+      for (let name in inputs) {
+        vals[name] = inputs[name].value.get()
+      }
+      let resp = await ajaon.post("render", params)
+      let aElem = ce("a").html("Download")
+      aElem.href = resp.resource
+      aElem.download = "true"
+      aElem.click()
+
+      this.downLoadServerButton.disabled = false
+      this.downLoadServerButton.text(oriText)
     })
 
 
